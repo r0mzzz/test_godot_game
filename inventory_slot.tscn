@@ -1,0 +1,48 @@
+[gd_scene load_steps=3 format=3 uid="uid://dm1p7flgujdin"]
+
+[ext_resource type="Script" path="res://inventory_slot.gd" id="1_xg4il"]
+[ext_resource type="Texture2D" uid="uid://c8pqgkvbglwio" path="res://inventory.png" id="2_s6sft"]
+
+[node name="Inventory_Slot" type="Control"]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 3
+anchors_preset = 0
+offset_left = 10.0
+offset_top = 10.0
+offset_right = 30.0
+offset_bottom = 30.0
+scale = Vector2(0.998348, 1)
+script = ExtResource("1_xg4il")
+
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+layout_mode = 0
+offset_right = 20.0
+offset_bottom = 20.0
+texture = ExtResource("2_s6sft")
+region_rect = Rect2(308.5, 135.6, 66.54, 65.15)
+
+[node name="Button" type="Button" parent="NinePatchRect"]
+modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 0
+offset_right = 20.0
+offset_bottom = 20.0
+
+[node name="Sprite2D" type="Sprite2D" parent="NinePatchRect"]
+texture_filter = 1
+position = Vector2(10, 10)
+scale = Vector2(0.6, 0.6)
+region_enabled = true
+region_rect = Rect2(450, 0, 50, 300)
+
+[node name="Label" type="Label" parent="NinePatchRect"]
+layout_mode = 0
+offset_left = 3.00496
+offset_top = 1.0
+offset_right = 13.0049
+offset_bottom = 24.0
+theme_override_font_sizes/font_size = 5
+text = "1
+"
+
+[connection signal="pressed" from="NinePatchRect/Button" to="." method="_on_button_pressed"]
